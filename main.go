@@ -5,9 +5,9 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/ricoharisin/nyaa-torrent-crawler/crawler"
-	"github.com/ricoharisin/nyaa-torrent-crawler/downloader"
-	"github.com/ricoharisin/nyaa-torrent-crawler/subscription"
+	"github.com/SevereCloud/nyaa-torrent-crawler/crawler"
+	"github.com/SevereCloud/nyaa-torrent-crawler/downloader"
+	"github.com/SevereCloud/nyaa-torrent-crawler/subscription"
 )
 
 func main() {
