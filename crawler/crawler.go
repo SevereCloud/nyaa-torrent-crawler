@@ -9,7 +9,7 @@ import (
 	"golang.org/x/net/html"
 )
 
-const BaseURL string = "https://nyaa.si"
+const BaseURL string = "https://nyaa.sovetromantica.com"
 
 func StartCrawling(keyword string, prevEpisode int) (bool, string) {
 	fmt.Println("crawling " + keyword + " .........")
