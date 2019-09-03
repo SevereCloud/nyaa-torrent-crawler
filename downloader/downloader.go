@@ -9,7 +9,7 @@ import (
 	"os"
 )
 
-const BaseURL string = "https://nyaa.sovetromantica.com"
+const BaseURL string = "https://nyaa.si"
 
 func DownloadTorrent(torrentUrl string) bool {
 	if _, err := os.Stat("./torrent"); err != nil {
