@@ -32,9 +32,7 @@ dockers:
     - nyaa-torrent-crawler
     # Templates of the Docker image names.
     image_templates:
-    - "severecloud/nyaa-torrent-crawler:{{ .Tag }}"
-    - "severecloud/nyaa-torrent-crawler:v{{ .Major }}"
-    - "severecloud/nyaa-torrent-crawler:v{{ .Major }}.{{ .Minor }}"
+    - "severecloud/nyaa-torrent-crawler:{{ .Major }}.{{ .Minor }}"
     - "severecloud/nyaa-torrent-crawler:latest"
     dockerfile: Dockerfile
   -
@@ -46,9 +44,7 @@ dockers:
     - nyaa-torrent-crawler
     # Templates of the Docker image names.
     image_templates:
-    - "severecloud/nyaa-torrent-crawler:linux-arm-{{ .Tag }}"
-    - "severecloud/nyaa-torrent-crawler:linux-arm-v{{ .Major }}"
-    - "severecloud/nyaa-torrent-crawler:linux-arm-v{{ .Major }}.{{ .Minor }}"
+    - "severecloud/nyaa-torrent-crawler:linux-arm-{{ .Major }}.{{ .Minor }}"
     - "severecloud/nyaa-torrent-crawler:linux-arm"
     dockerfile: Dockerfile
 
