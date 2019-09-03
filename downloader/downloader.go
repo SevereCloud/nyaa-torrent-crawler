@@ -14,7 +14,8 @@ const BaseURL string = "https://nyaa.si"
 func DownloadTorrent(torrentUrl string) bool {
 	if _, err := os.Stat("./torrent"); err != nil {
 		if os.IsNotExist(err) {
-			os.Mkdir("torrent", 0777)
+			// TODO: check err
+			_ = os.Mkdir("torrent", 0777)
 		}
 	}
 

@@ -15,7 +15,8 @@ type SubscribeInfo struct {
 
 func GetListSubscription() []SubscribeInfo {
 	raw := getSubscribeInfoFile()
-	json.Unmarshal(raw, &list)
+	// TODO: check err
+	_ = json.Unmarshal(raw, &list)
 	return list
 }
 
@@ -33,7 +34,8 @@ func UpdateSubscriptionEpisode(index int) {
 	nextEps := prevEps + 1
 	list[index].Episode = nextEps
 	newList, _ := json.Marshal(list)
-	ioutil.WriteFile("./subscribe.info.json", newList, 0777)
+	// TODO: check err
+	_ = ioutil.WriteFile("./subscribe.info.json", newList, 0777)
 }
 
 func InsertNewSubscription(keyword string, episode int) {
@@ -43,7 +45,8 @@ func InsertNewSubscription(keyword string, episode int) {
 	newSubscribe.Episode = episode
 	oldList = append(oldList, newSubscribe)
 	newList, _ := json.Marshal(oldList)
-	ioutil.WriteFile("./subscribe.info.json", newList, 0777)
+	// TODO: check err
+	_ = ioutil.WriteFile("./subscribe.info.json", newList, 0777)
 }
 
 func RemoveSubscription(index int) {
@@ -51,7 +54,8 @@ func RemoveSubscription(index int) {
 	if index < len(oldList) {
 		oldList = append(oldList[:index], oldList[index+1:]...)
 		newList, _ := json.Marshal(oldList)
-		ioutil.WriteFile("./subscribe.info.json", newList, 0777)
+		// TODO: check err
+		_ = ioutil.WriteFile("./subscribe.info.json", newList, 0777)
 	} else {
 		fmt.Println("invalid index")
 	}

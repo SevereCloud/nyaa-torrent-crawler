@@ -18,19 +18,14 @@ func main() {
 		switch args[1] {
 		case "subscribe":
 			subscribe(args[2], args[3])
-			break
 		case "crawl":
 			crawl()
-			break
 		case "list":
 			list()
-			break
 		case "unsubscribe":
 			removeSubscription(args)
-			break
 		default:
 			showHelp()
-			break
 		}
 	}
 }
