@@ -1,0 +1,62 @@
+
+project_name: nyaa-torrent-crawler
+
+env:
+  - GO111MODULE=on
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+- env:
+  - CGO_ENABLED=0
+  goos:
+    - linux
+    - darwin
+    - windows
+  goarch:
+    - 386
+    - amd64
+    - arm
+    - arm64
+  goarm:
+    - 6
+    - 7
+dockers:
+  -
+    goos: linux
+    goarch: amd64
+    # Name templates of the built binaries that should be used.
+    binaries:
+    - nyaa-torrent-crawler
+    # Templates of the Docker image names.
+    image_templates:
+    - "severecloud/nyaa-torrent-crawler:{{ .Tag }}"
+    - "severecloud/nyaa-torrent-crawler:v{{ .Major }}"
+    - "severecloud/nyaa-torrent-crawler:v{{ .Major }}.{{ .Minor }}"
+    - "severecloud/nyaa-torrent-crawler:latest"
+    dockerfile: Dockerfile
+  -
+    goos: linux
+    goarch: arm
+    goarm: 7
+    # Name templates of the built binaries that should be used.
+    binaries:
+    - nyaa-torrent-crawler
+    # Templates of the Docker image names.
+    image_templates:
+    - "severecloud/nyaa-torrent-crawler:linux-arm-{{ .Tag }}"
+    - "severecloud/nyaa-torrent-crawler:linux-arm-v{{ .Major }}"
+    - "severecloud/nyaa-torrent-crawler:linux-arm-v{{ .Major }}.{{ .Minor }}"
+    - "severecloud/nyaa-torrent-crawler:linux-arm"
+    dockerfile: Dockerfile
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'
+    - Merge pull request
+    - Merge branch
