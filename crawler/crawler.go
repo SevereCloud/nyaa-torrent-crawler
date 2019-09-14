@@ -33,6 +33,7 @@ func getDetailUrlForLastEpisode(keyword string, prevEpisode int) (bool, string, 
 
 	if err != nil {
 		fmt.Println("ERROR: Failed to crawl \"" + url + "\"")
+		fmt.Println(err)
 		return false, "", 0
 	}
 
@@ -74,6 +75,7 @@ func getTorrentUrlFromDetail(urlDetail string) (bool, string) {
 
 	if err != nil {
 		fmt.Println("ERROR: Failed to crawl \"" + url + "\"")
+		fmt.Println(err)
 		return false, ""
 	}
 
